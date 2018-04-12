@@ -17,11 +17,17 @@ app.post('/login',function (req,res) {
   var password = req.body.password;
   connection.query('select * from student where studentID = ' + username, function(err,rows,fields){
     if(rows[0] == null){
-        res.send('your username does not exist');
+      res.json({
+        studentID: null
+      })
     }else if(rows[0].passwords != password){
-        res.send('your password is wrong');
+      res.json({
+        studentID: null
+      })
     }else if(rows[0].passwords === password){
-        res.send('Hello ' + rows[0].fname + ' ' + rows[0].lname);
+      res.json({
+        studentID: username
+      })
     }
   })
 });

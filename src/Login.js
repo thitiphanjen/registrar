@@ -9,7 +9,6 @@ class Login extends Component {
     }
     handleLogin(event){
         event.preventDefault();
-        console.log('Begin Submit');
         fetch('/login', {
             method: 'POST',
             headers: new Headers({
@@ -17,7 +16,10 @@ class Login extends Component {
             }),
             body:"username="+this.refs.username.value+"&password="+this.refs.password.value
         })
-        .then(res => console.log(res))
+        .then(res => res.json())
+        .then(items => {
+            this.props.onLogin(items.studentID)
+        })
     }
     render() {
         return (
@@ -35,7 +37,7 @@ class Login extends Component {
                             <input ref="password" className="Password-box"type="Password"  placeholder="Password" />
                         </div>
                         <div className="LoginButton">
-                            <button className="LoginButton2" type="submit">Login</button>
+                            <Link to="/home"><button className="LoginButton2" type="submit">Login</button></Link>
                         </div>
                     </form>
                 </div>
