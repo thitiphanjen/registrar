@@ -24,13 +24,29 @@ app.post('/login',function (req,res) {
       res.json({
         studentID: null
       })
-    }else if(rows[0].passwords === password){
+    }else if(rows[0].passwords == password){
       res.json({
         studentID: username
       })
     }
   })
 });
+
+app.post('/courses',function (req,res) { 
+  connection.query('select * from course inner join section on section.courseID = course.courseID inner join teacher on section.teacherID = teacher.teacherID;',function (err,rows,fields) { 
+      res.json(rows)
+   })
+ })
+
+ app.post('/courses/register',function (req,res) { 
+    var studentID = req.body.studentID;
+    var courseID = req.body.courseID;
+    var sectionNumber = req.body.sectionNumber;
+    var semester = req.body.semester;
+    connection.query('insert into study value ("'+studentID+'","'+courseID+'","'+sectionNumber+'","'+semester+'",now(),0)',function (err,rows,fields) { 
+      res.send(rows)
+    })
+ })
 
 
 app.listen(3300);
