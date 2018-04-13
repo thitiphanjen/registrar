@@ -25,7 +25,8 @@
 }
 .App-bottom {
   background-color: #FEF5FF;
-  height: 600px;
+  height:74vh;
+
 }
 .Username-box{
   height: 30px;
@@ -66,6 +67,13 @@
   height: 30px;
   width: 70px;
   border-radius: 7px;
-  border-style: none;
+  border-style: solid;
   font-size: 12px;
+  background-color: white;
+  border-width: thin;
+}
+.LoginButton2:Hover{
+  cursor: pointer;
+  background-color: #FF69B4;
+  color: white;
 }

@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import logo from './images/logo_chula.png';
 import './css/Login.css';
+import { Link } from "react-router-dom";
+import { Route, Redirect } from 'react-router-dom'
 
 class Login extends Component {
     constructor(props){
         super(props);
         this.handleLogin = this.handleLogin.bind(this);
+    }
+    isLogined(studentID){
+        if(studentID != null){
+            return <Redirect to="/detail" />
+        }
     }
     handleLogin(event){
         event.preventDefault();
@@ -19,6 +26,7 @@ class Login extends Component {
         .then(res => res.json())
         .then(items => {
             this.props.onLogin(items.studentID)
+            this.isLogined(items.studentID)
         })
     }
     render() {
@@ -36,9 +44,9 @@ class Login extends Component {
                         <div className="App-Password">
                             <input ref="password" className="Password-box"type="Password"  placeholder="Password" />
                         </div>
-                        <div className="LoginButton">
-                            <Link to="/home"><button className="LoginButton2" type="submit">Login</button></Link>
-                        </div>
+                            <div className="LoginButton">
+                                <button className="LoginButton2" type="submit"><Link to="/home">Login</Link></button>
+                            </div>
                     </form>
                 </div>
             </div>
