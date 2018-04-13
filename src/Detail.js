@@ -6,7 +6,7 @@ class Detail extends Component{
   render(){
     return(
       <div>
-      <img src={test} />
+      <img className = 'eiei' src={test} />
       </div>
     );
   }

@@ -5,7 +5,6 @@ import RegisterCourse from './RegisterCourse';
 import Login from './Login';
 import AddCourse from './AddCourse';
 import ManageCourse from './ManageCourse';
-import logo from './images/logo_chula.png';
 import logout from './images/logout.png';
 import Detail from './Detail';
 import './css/Home.css';
@@ -14,12 +13,10 @@ var state=0;
 function openNav() {
   if (state==0){
     document.getElementById("HomeSideBar").style.width = "240px";
-    document.getElementById("Toggle").style.left = "240px";
     state =1;
   }
   else {
     document.getElementById("HomeSideBar").style.width = "0px";
-    document.getElementById("Toggle").style.left = "5px";
     state=0;
   }
 }
@@ -43,7 +40,7 @@ class Home extends Component {
       // </div>
       <div className="Home">
         <div className="HomeHeader">
-          <img src={logo} className="HomeLogo"/>
+        <h1 className='Re'></h1>
           <Link to='/'><img src={logout} className="HomeLogout"/></Link>
         </div>
 

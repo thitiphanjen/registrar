@@ -1,9 +1,8 @@
 .RegisterPage{
   position: absolute;
   font-family: 'Athiti', sans-serif;
-  width:auto;
-  position:absolute;
   left: 50%;
+  top: 0px;
   transform: translate(-50%, 0);
   -webkit-transform: translate(-50%, 0);
   -moz-transform: translate(-50%, 0);
@@ -14,16 +13,24 @@
   width: 100px;
   background-color: pink;
 }
-.ToRegisterTable th{
-  width: 100px;
-}
 .CourseNameStyle{
   width: 250px;
   background-color: pink;
 }
+
 .SearchBox{
   font-family: 'Athiti', sans-serif;
   margin-bottom: 10px;
+  border-radius: 7px;
+  border-style: solid;
+  border-width: thin;
+  padding-left: 7px;
+  border-color: grey;
+  font-size: 12px;
+  width: 200px;
+
+}::placeholder{
+  font-size: 12px;
 }
 .H1{
   font-size: 20px;

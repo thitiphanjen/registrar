@@ -74,6 +74,7 @@ class RegisterCourse extends Component{
                             <th className='RegisterTable'>Credit</th>
                             <th className='RegisterTable'>Section</th>
                             <th className='RegisterTable'>Teacher</th>
+                            <th><button className='RegisterButton2'>+</button></th>
                         </tr>
                         {this.state.selectedCourses.map(course => <tr>
                             <th>{course.courseID}</th>
@@ -81,11 +82,12 @@ class RegisterCourse extends Component{
                             <th>{course.credit}</th>
                             <th>{course.sectionNumber}</th>
                             <th>{course.teacher}</th>
+
                         </tr>)}
                     </tbody>
                 </table>
 
-                <button onClick={() => this.handleSubmit()}>Submit</button>
+                <button className='RegisterSubmit'onClick={() => this.handleSubmit()}>Submit</button>
             </div>
         );
     }
