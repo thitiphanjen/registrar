@@ -7,6 +7,7 @@ import AddCourse from './AddCourse';
 import ManageCourse from './ManageCourse';
 import logo from './images/logo_chula.png';
 import logout from './images/logout.png';
+import Detail from './Detail';
 import './css/Home.css';
 
 var state=0;
@@ -61,7 +62,7 @@ class Home extends Component {
 
         <div className='HomeBody'>
           <span className="Toggle" id="Toggle" onClick={()=>openNav()}>&#9776;</span>
-          {/* <Route exact path="/home/" render={() => <RegisterCourse />}/> */}
+          <Route exact path="/home/" render={() => <Detail />}/>
           <Route exact path="/home/RegisterCourse" render={() => <RegisterCourse studentID={this.props.studentID}/>}/>
           <Route exact path="/home/ManageCourse" render={() => < ManageCourse />}/>
           <Route exact path="/home/ManageCourseResult" render={() => <Login />}/>

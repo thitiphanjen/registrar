@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './css/RegisterCourseItem.css';
 
 class RegisterCourseItem extends Component{
     constructor(props){
@@ -19,9 +20,9 @@ class RegisterCourseItem extends Component{
     }
     renderButton(){
         if(this.state.status == 0){
-            return <th><button onClick={this.handleClick} type="submit">Add</button></th>
+            return <th><button className='RegisterButton' onClick={this.handleClick} type="submit">+</button></th>
         }else{
-            return <th><button onClick={this.handleClick} type="submit">Remove</button></th>
+            return <th><button className='RegisterButton' onClick={this.handleClick} type="submit">-</button></th>
         }
     }
     render(){

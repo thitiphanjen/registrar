@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RegisterCourseItem from './RegisterCourseItem'
+import './css/RegisterCourse.css';
 
 class RegisterCourse extends Component{
     constructor(props){
@@ -45,16 +46,34 @@ class RegisterCourse extends Component{
     }
     render(){
         return(
-            <div>
-                <h2>รายวิชาที่เลือก</h2>
+            <div className = 'RegisterPage'>
+            <p className='H1'>รายวิชาที่เปิดสอน</p>
+            <input className='SearchBox' type="text" placeholder="Search" onChange={this.filterList}/>
+            <table>
+                <tbody>
+                    <tr>
+                        <th className='RegisterTable'>CourseID</th>
+                        <th className='CourseNameStyle'>CourseName</th>
+                        <th className='RegisterTable'>Credit</th>
+                        <th className='RegisterTable'>Section</th>
+                        <th className='RegisterTable'>Teacher</th>
+                        <th></th>
+                    </tr>
+                    {this.state.courses.map(course => <RegisterCourseItem
+                        add={(courseID,sectionNumber,semester,courseName,credit,teacher) => this.setState({selectedCourses: [...this.state.selectedCourses,{courseID,sectionNumber,semester,courseName,credit,teacher}]})}
+                        remove={(courseID,sectionNumber,semester) => this.setState({selectedCourses: this.state.selectedCourses.filter(item => (item.courseID != courseID) || (item.sectionNumber != sectionNumber) || (item.semester != semester) )})}
+                        item={course} />)}
+                </tbody>
+            </table>
+                <p className='H2'>รายวิชาที่เลือก</p>
                 <table>
                     <tbody>
                         <tr>
-                            <th>CourseID</th>
-                            <th>CourseName</th>
-                            <th>Credit</th>
-                            <th>Section</th>
-                            <th>Teacher</th>
+                            <th className='RegisterTable'>CourseID</th>
+                            <th className='CourseNameStyle'>CourseName</th>
+                            <th className='RegisterTable'>Credit</th>
+                            <th className='RegisterTable'>Section</th>
+                            <th className='RegisterTable'>Teacher</th>
                         </tr>
                         {this.state.selectedCourses.map(course => <tr>
                             <th>{course.courseID}</th>
@@ -65,24 +84,7 @@ class RegisterCourse extends Component{
                         </tr>)}
                     </tbody>
                 </table>
-                <h2>รายวิชาที่เปิดสอน</h2>
-                <input type="text" placeholder="Search" onChange={this.filterList}/>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>CourseID</th>
-                            <th>CourseName</th>
-                            <th>Credit</th>
-                            <th>Section</th>
-                            <th>Teacher</th>
-                            <th></th>
-                        </tr>
-                        {this.state.courses.map(course => <RegisterCourseItem 
-                            add={(courseID,sectionNumber,semester,courseName,credit,teacher) => this.setState({selectedCourses: [...this.state.selectedCourses,{courseID,sectionNumber,semester,courseName,credit,teacher}]})} 
-                            remove={(courseID,sectionNumber,semester) => this.setState({selectedCourses: this.state.selectedCourses.filter(item => (item.courseID != courseID) || (item.sectionNumber != sectionNumber) || (item.semester != semester) )})}
-                            item={course} />)}
-                    </tbody>
-                </table>
+
                 <button onClick={() => this.handleSubmit()}>Submit</button>
             </div>
         );
