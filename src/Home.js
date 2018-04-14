@@ -7,6 +7,7 @@ import AddCourse from './AddCourse';
 import ManageCourse from './ManageCourse';
 import logout from './images/logout.png';
 import Detail from './Detail';
+import RegisterCourseResult from './RegisterCourseResult';
 import './css/Home.css';
 
 var state=0;
@@ -23,6 +24,7 @@ function openNav() {
 
 class Home extends Component {
   render() {
+    state=0;
     return (
       // <div className="All">
       //   <nav className="SideBar">
@@ -45,16 +47,16 @@ class Home extends Component {
         </div>
 
         <div className="HomeSideBar" id="HomeSideBar">
-          <Link to='/home'><button className='HomeSideBarButton'>หน้าแรก</button></Link><br/>
-          <Link to='/home/RegisterCourse'><button className='HomeSideBarButton'>ลงทะเบียนเรียน</button></Link><br/>
-          <Link to='/home/ManageCourse'><button className='HomeSideBarButton'>ผลการแสดงความจำนง</button></Link><br/>
-          <Link to='/home'><button className='HomeSideBarButton'>เพิ่ม-ลดรายวิชา</button></Link><br/>
-          <Link to='/home'><button className='HomeSideBarButton'>ผลการลงทะเบียนเรียน</button></Link><br/>
-          <Link to='/home'><button className='HomeSideBarButton'>ยอดค้างชำระค่าเทอม</button></Link><br/>
-          <Link to='/home'><button className='HomeSideBarButton'>ผลการชำระค่าเทอม</button></Link><br/>
-          <Link to='/home'><button className='HomeSideBarButton'>ลงทะเบียนกิจกรรมหอพัก</button></Link><br/>
-          <Link to='/home'><button className='HomeSideBarButton'>ผลการลงทะเบียนกิจกรรมหอพัก</button></Link><br/>
-          <Link to='/home'><button className='HomeSideBarButton'>ประวัติการเข้าร่วมกิจกรรมหอพัก</button></Link><br/>
+          <Link to='/home'><button className='HomeSideBarButton' onClick={()=>openNav()}>หน้าแรก</button></Link><br/>
+          <Link to='/home/RegisterCourse'><button className='HomeSideBarButton' onClick={()=>openNav()}>ลงทะเบียนเรียน</button></Link><br/>
+          <Link to='/home/RegisterCourseResult'><button className='HomeSideBarButton' onClick={()=>openNav()}>ผลการแสดงความจำนง</button></Link><br/>
+          <Link to='/home'><button className='HomeSideBarButton' onClick={()=>openNav()}>เพิ่ม-ลดรายวิชา</button></Link><br/>
+          <Link to='/home'><button className='HomeSideBarButton' onClick={()=>openNav()}>ผลการลงทะเบียนเรียน</button></Link><br/>
+          <Link to='/home'><button className='HomeSideBarButton' onClick={()=>openNav()}>ยอดค้างชำระค่าเทอม</button></Link><br/>
+          <Link to='/home'><button className='HomeSideBarButton' onClick={()=>openNav()}>ผลการชำระค่าเทอม</button></Link><br/>
+          <Link to='/home'><button className='HomeSideBarButton' onClick={()=>openNav()}>ลงทะเบียนกิจกรรมหอพัก</button></Link><br/>
+          <Link to='/home'><button className='HomeSideBarButton' onClick={()=>openNav()}>ผลการลงทะเบียนกิจกรรมหอพัก</button></Link><br/>
+          <Link to='/home'><button className='HomeSideBarButton' onClick={()=>openNav()}>ประวัติการเข้าร่วมกิจกรรมหอพัก</button></Link><br/>
         </div>
 
         <div className='HomeBody'>
@@ -68,6 +70,7 @@ class Home extends Component {
           <Route exact path="/home/ReduceCourse" render={() => <Login />}/>
           <Route exact path="/home/RegisterActivity" render={() => <Login />}/>
           <Route exact path="/home/RegisterActivityResult" render={() => <Login />}/>
+          <Route exact path="/home/RegisterCourseResult" render={() => <RegisterCourseResult />}/>
         </div>
       </div>
     );

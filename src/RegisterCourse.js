@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RegisterCourseItem from './RegisterCourseItem'
 import './css/RegisterCourse.css';
 
+
 class RegisterCourse extends Component{
     constructor(props){
         super(props);
@@ -46,6 +47,7 @@ class RegisterCourse extends Component{
     }
     render(){
         return(
+
             <div className = 'RegisterPage'>
             <p className='H1'>รายวิชาที่เปิดสอน</p>
             <input className='SearchBox' type="text" placeholder="Search" onChange={this.filterList}/>
@@ -65,7 +67,7 @@ class RegisterCourse extends Component{
                         item={course} />)}
                 </tbody>
             </table>
-                <p className='H2'>รายวิชาที่เลือก</p>
+                <p className='H1'>รายวิชาที่เลือก</p>
                 <table>
                     <tbody>
                         <tr>
@@ -88,7 +90,11 @@ class RegisterCourse extends Component{
                 </table>
 
                 <button className='RegisterSubmit'onClick={() => this.handleSubmit()}>Submit</button>
+                <div className='RightSideBar' id='RightSideBar'>
+
+                </div>
             </div>
+
         );
     }
 }

@@ -1,4 +1,4 @@
-.DetailPage{
+.RegisterCourseResultPage{
   position: absolute;
   font-family: 'Athiti', sans-serif;
   left: 50%;
@@ -8,6 +8,4 @@
   -moz-transform: translate(-50%, 0);
   -o-transform: translate(-50%, 0);
   -ms-transform: translate(-50%, 0);
-  text-align: center;
-  width: 80%;
 }

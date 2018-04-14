@@ -3,30 +3,24 @@ import logo from './images/logo_chula.png';
 import './css/Login.css';
 import { Link } from "react-router-dom";
 import { Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 class Login extends Component {
     constructor(props){
         super(props);
         this.handleLogin = this.handleLogin.bind(this);
     }
-    isLogined(studentID){
-        if(studentID != null){
-            return <Redirect to="/detail" />
-        }
-    }
     handleLogin(event){
-        event.preventDefault();
         fetch('/login', {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/x-www-form-urlencoded'
             }),
-            body:"username="+this.refs.username.value+"&password="+this.refs.password.value
+            body:"username="+event.username.value+"&password="+event.password.value
         })
         .then(res => res.json())
         .then(items => {
-            this.props.onLogin(items.studentID)
-            this.isLogined(items.studentID)
+            this.props.onLogin(items.studentID,items.fname,items.lname)
         })
     }
     render() {
@@ -37,7 +31,7 @@ class Login extends Component {
                     <h1 className="App-title">Chulalongkorn University</h1>
                 </header>
                 <div className="App-bottom">
-                    <form onSubmit={this.handleLogin}>
+                    <form>
                         <div className="App-Username">
                             <input ref="username" className="Username-box" type="text"  placeholder="Student ID" />
                         </div>
@@ -45,7 +39,7 @@ class Login extends Component {
                             <input ref="password" className="Password-box"type="Password"  placeholder="Password" />
                         </div>
                             <div className="LoginButton">
-                                <button className="LoginButton2" type="submit"><Link to="/home">Login</Link></button>
+                                <Link to="/home"><button onClick={()=> this.handleLogin(this.refs)}className="LoginButton2" type="submit">Login</button></Link>
                             </div>
                     </form>
                 </div>
