@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import RegisterCourseItem from './RegisterCourseItem'
 import './css/RegisterCourse.css';
+var state=0;
+function openNav() {
+  if (state==0){
+    document.getElementById("RightSideBar").style.width = "auto";
+    state =1;
+  }
+  else {
+    document.getElementById("RightSideBar").style.width = "0";
+    state=0;
+  }
+}
 
 
 class RegisterCourse extends Component{
@@ -47,7 +58,8 @@ class RegisterCourse extends Component{
     }
     render(){
         return(
-
+          <div className='test'>
+          <span className="Toggle2" id="Toggle2" id="Toggle2" onClick={()=>openNav()}>&#9776;</span>
             <div className = 'RegisterPage'>
             <p className='H1'>รายวิชาที่เปิดสอน</p>
             <input className='SearchBox' type="text" placeholder="Search" onChange={this.filterList}/>
@@ -67,33 +79,33 @@ class RegisterCourse extends Component{
                         item={course} />)}
                 </tbody>
             </table>
-                <p className='H1'>รายวิชาที่เลือก</p>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th className='RegisterTable'>CourseID</th>
-                            <th className='CourseNameStyle'>CourseName</th>
-                            <th className='RegisterTable'>Credit</th>
-                            <th className='RegisterTable'>Section</th>
-                            <th className='RegisterTable'>Teacher</th>
-                            <th><button className='RegisterButton2'>+</button></th>
-                        </tr>
-                        {this.state.selectedCourses.map(course => <tr>
-                            <th>{course.courseID}</th>
-                            <th>{course.courseName}</th>
-                            <th>{course.credit}</th>
-                            <th>{course.sectionNumber}</th>
-                            <th>{course.teacher}</th>
 
-                        </tr>)}
-                    </tbody>
-                </table>
-
-                <button className='RegisterSubmit'onClick={() => this.handleSubmit()}>Submit</button>
-                <div className='RightSideBar' id='RightSideBar'>
-
-                </div>
             </div>
+            <div className='RightSideBar' id='RightSideBar'>
+            <p className='H3'>รายวิชาที่เลือก</p>
+            <table>
+                <tbody>
+                    <tr>
+                        <th className='RegisterTable'>CourseID</th>
+                        <th className='CourseNameStyle'>CourseName</th>
+                        <th className='RegisterTable'>Credit</th>
+                        <th className='RegisterTable'>Section</th>
+                        <th className='RegisterTable'>Teacher</th>
+                        <th><button className='RegisterButton2'>+</button></th>
+                    </tr>
+                    {this.state.selectedCourses.map(course => <tr>
+                        <th className='cc'>{course.courseID}</th>
+                        <th className='cc'>{course.courseName}</th>
+                        <th className='cc'>{course.credit}</th>
+                        <th className='cc'>{course.sectionNumber}</th>
+                        <th className='cc'>{course.teacher}</th>
+
+                    </tr>)}
+                </tbody>
+            </table>
+            <button className='RegisterSubmit'onClick={() => this.handleSubmit()}>Submit</button>
+            </div>
+          </div>
 
         );
     }

@@ -1,3 +1,17 @@
+.Toggle2{
+  position: fixed;
+  right: 0%;
+  bottom: 10%;
+  transition: 0.5s;
+  font-size: 40px;
+  color: black;
+  margin-top: -7px;
+  z-index: 100;
+}
+.Toggle2:Hover{
+  cursor: pointer;
+}
+
 .RegisterPage{
   position: absolute;
   font-family: 'Athiti', sans-serif;
@@ -19,6 +33,9 @@
   background-color: pink;
 }
 
+.cc {
+  color: white;
+}
 .SearchBox{
   font-family: 'Athiti', sans-serif;
   margin-bottom: 10px;
@@ -43,4 +60,23 @@
   margin-left: 2px;
   margin-bottom: 0px;
   color: red;
+}
+.H3{
+  font-size: 25px;
+  margin-left: 2px;
+  margin-bottom: 0px;
+  color: white;
+  font-size: 20px;
+}
+.RightSideBar{
+  position: absolute;
+  font-family: 'Athiti', sans-serif;
+  top: 35px;
+  right: 0%;
+  width: 0;
+  transition: 0.5s;
+  background-color: grey;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-bottom: 20px;
 }
